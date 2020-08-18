@@ -1,0 +1,276 @@
+.mdi-32px.mdi-set, .mdi-32px.mdi:before {
+	font-size: 32px;
+}
+._th_green:before {
+	color: #13a51e;
+}
+._th_red {
+	color: #a51313;
+}
+._th_yellow {
+	color: #c38615;
+}
+._th_link {
+	color: #0b6aa2;
+}
+
+
+#side-panel img,
+#projectstatus img,
+.manage-option img{
+	content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII=');
+}
+#header {
+	background: #0b6aa2;
+	position: relative;
+	z-index: 2;
+}
+#breadcrumbBar {
+	position: relative;
+	z-index: 1;
+}
+#page-body {
+	position: relative;
+	z-index: 0;
+}
+
+#status417,
+#main-panel > h1 {
+	display: flex;
+	align-items: center;
+}
+a:link, a:visited {
+	color: #0b6aa2;
+	text-decoration: none;
+}
+.manage-option .icon {
+	line-height: 48px;
+}
+
+.top-sticker {
+	box-shadow: 0 0 5px rgba(0, 0, 0, .7), 0 0 10px rgba(0, 0, 0, .12)
+}
+.setting-help .help-button {
+	vertical-align: text-bottom;
+}
+.help {
+	background-color: #f8f8f8;
+}
+.advancedLink > span {
+	vertical-align: middle;
+}
+.task {
+	height: 36px;
+	display: flex;
+	align-items: center;
+}
+
+.console-output .timestamp b{
+	color: #b7b7b7;
+}
+.console-output .error-inline {
+	color: #f44336
+}
+.console-output,
+.console-output * {
+	position: relative;
+	font-family: Roboto Mono, Sarasa Mono SC, Consolas, monospace !important;
+	font-size: 14px;
+	background: #263238;
+	color: #e9eded;
+	cursor: text
+}
+.console-output {
+	padding: 10px 15px
+}
+
+a.yui-button,
+.yui-button button {
+	text-decoration: none;
+	text-align: center;
+	letter-spacing: .5px;
+	transition: .2s ease-out;
+	cursor: pointer;
+	border: 0!important;
+	display: inline-block;
+	outline: 0;
+	padding: 0 2rem;
+	text-transform: uppercase;
+	vertical-align: middle;
+	-webkit-tap-highlight-color: transparent;
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .16), 0 0 10px 0 rgba(0, 0, 0, .12)
+}
+a.yui-button.primary,
+.yui-button.primary button {
+	color: #fff!important;
+	background-color: #039be5!important
+}
+.yui-button + .yui-button {
+	margin-left: 1em
+}
+
+
+td input,
+td label,
+.setting-help {
+	vertical-align: middle !important;
+}
+
+td label{
+	display: inline-flex;
+	align-items: center;
+}
+td label input[type="radio"]{
+	margin: 3px 5px !important;
+}
+
+#buildQueue img,
+#executors img {
+	display: none;
+}
+
+#buildQueue a,
+#executors a {
+	display: flex;
+	align-items: center;
+}
+
+#buildQueue .pane-header a:before,
+#executors .pane-header a:before {
+  display: inline-block;
+  font: normal normal normal 24px/1 "Material Design Icons";
+  font-size: 14px;
+  text-rendering: auto;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+#buildQueue.expanded .pane-header a.collapse:before, #executors.expanded .pane-header a.collapse:before {
+    content: "\F0143";
+}
+#buildQueue.collapsed .pane-header a.collapse:before, #executors.collapsed .pane-header a.collapse:before {
+    content: "\F0140";
+}
+
+#bottom-sticker {
+	width: calc(100% - 290px) !important;
+}
+.bottom-sticker-edge {
+	display: none;
+}
+.bottom-sticker-inner {
+	margin: 1px;
+	border: none !important;
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,#f8f8f8 25%,#f8f8f8 100%) !important;
+}
+
+* {
+	border-radius: 0 !important;
+}
+
+.container-fluid > span {
+	display: none;
+}
+pre, code, kbd, samp, tt{
+    background: #e2eaef;
+    padding: 0 3px;
+    font-family: Roboto Mono, Sarasa Mono SC, Consolas, monospace !important;
+}
+.CodeMirror {
+    background-color: #263238!important;
+    color: #e9eded!important;
+    font-size: 14px;
+    cursor: text
+}
+.CodeMirror *{
+    font-family: Roboto Mono, Sarasa Mono SC, Consolas, monospace !important;
+}
+.CodeMirror pre {
+    line-height: 20px!important
+}
+.CodeMirror-gutters {
+    background: #263238!important;
+    border: 0
+}
+.CodeMirror-guttermarker,
+.CodeMirror-guttermarker-subtle,
+.CodeMirror-gutters,
+.CodeMirror-linenumber {
+    color: #537f7e!important
+}
+.CodeMirror-cursor {
+    border-left: 1px solid #e9eded!important
+}
+.CodeMirror-focused div.CodeMirror-selected,
+.CodeMirror-line::selection,
+.CodeMirror-line > span::selection,
+.CodeMirror-line > span > span::selection,
+div.CodeMirror-selected {
+    background: hsla(0, 0%, 100%, .15)!important
+}
+.CodeMirror-line::-moz-selection,
+.CodeMirror-line > span::-moz-selection,
+.CodeMirror-line > span > span::-moz-selection {
+    background: hsla(0, 0%, 100%, .15)!important
+}
+.CodeMirror-activeline-background {
+    background: #263238!important
+}
+.cm-keyword {
+    color: #c792ea!important
+}
+.cm-operator {
+    color: #fff!important
+}
+.cm-variable-2 {
+    color: #80cbc4!important
+}
+.cm-variable-3 {
+    color: #82b1ff!important
+}
+.cm-builtin {
+    color: #decb6b!important
+}
+.cm-atom,
+.cm-number {
+    color: #f77669!important
+}
+.cm-def {
+    color: #e9eded!important
+}
+.cm-string {
+    color: #decb6b!important
+}
+.cm-string-2 {
+    color: #80cbc4!important
+}
+.cm-comment {
+    color: #537f7e!important
+}
+.cm-variable {
+    color: #82b1ff!important
+}
+.cm-meta,
+.cm-tag {
+    color: #80cbc4!important
+}
+.cm-attribute {
+    color: #decb6b!important
+}
+.cm-property {
+    color: #80cbc4!important
+}
+.cm-qualifier,
+.cm-variable-3 {
+    color: #decb6b!important
+}
+.cm-tag {
+    color: #f77669!important
+}
+.cm-error {
+    color: #e9eded!important;
+    background-color: #f77669!important
+}
+.CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: #e9eded!important
+}
