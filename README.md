@@ -4,16 +4,19 @@ Make jenkins looks better with Material Design Icon.
 
 ## Features
 
-- Replace the old Tango Icon by [Material Design Icon](https://materialdesignicons.com "Material Design Icon")
+- Replace icons by [Material Design Icon](https://materialdesignicons.com "Material Design Icon")
 - Remove all border radius
-- Fix some vertical align(checkbox, icon, etc.)
-- Material Design button style from [afonsof/jenkins-material-theme](https://github.com/afonsof/jenkins-material-theme)
+- Fix some vertical align(partly)
+- Button style from [afonsof/jenkins-material-theme](https://github.com/afonsof/jenkins-material-theme)
 - Syntax Highlight theme from [afonsof/jenkins-material-theme](https://github.com/afonsof/jenkins-material-theme)
 
 ## Screenshots
 ![](screenshots/screenshot-1.png)
+
 ![](screenshots/screenshot-2.png)
+
 ![](screenshots/screenshot-3.png)
+
 ![](screenshots/screenshot-4.png)
 
 ## Installation
@@ -30,3 +33,9 @@ Make jenkins looks better with Material Design Icon.
 1. Download this repo and upload files under `userContent` to your host's `$JENKINS_HOME/userContent`
 2. Download [Material Design Icon](https://materialdesignicons.com "Material Design Icon") (version 5.5.5) and upload files to your host's `$JENKINS_HOME/userContent` 
 3. Follow the previous method steps and change the URLs to your own
+
+
+## Compatibility
+Just test on my own:
+- Jenkins 2.235.4
+- Chrome 84
