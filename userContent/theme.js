@@ -1,4 +1,5 @@
 (function() {
+	// icon mapping, same file is separated by position/href
 	let MMP = {
 		'new-package.png': 'mdi-text-box-plus',
 		'new-user.png': 'mdi-account-plus',
@@ -73,7 +74,7 @@
 		'terminal.png': [{
 			pos: 'left',
 			value: 'mdi-clipboard-text-outline'
-		},{
+		}, {
 			pos: 'main',
 			value: 'mdi-powershell'
 		}],
@@ -113,7 +114,7 @@
 		'refresh.png': 'mdi-cog-refresh',
 		'system-log-out.png': 'mdi-remote-desktop',
 		'mail-mark-read.png': 'mdi-email-multiple',
-		'orange-square.png' : 'mdi-account-circle-outline',
+		'orange-square.png': 'mdi-account-circle-outline',
 		'spinner.gif': 'mdi-vanish-quarter mdi-spin',
 		'new-credential.png': 'mdi-key-plus',
 		'none.gif': 'mdi-blank',
@@ -127,6 +128,7 @@
 		'domain.png': 'mdi-web-box',
 	};
 
+	// theme entry
 	function init_theme($) {
 		theme_left($);
 		theme_table($);
@@ -135,43 +137,7 @@
 		theme_main($);
 	}
 
-	function mapping(img, pos, href) {
-		let l1 = MMP[img];
-		if(img.includes('?')){
-			return '';
-		}
-		if (!l1) {
-			console.warn('MAP MIS1:', img, pos);
-			return '';
-		}
-
-		if (typeof(l1) == 'string') {
-			return l1;
-		}
-
-		let params = [{
-			key: 'pos',
-			value: pos || ''
-		}, {
-			key: 'href',
-			value: href || ''
-		}];
-		let rst = l1;
-		for (let prm of params) {
-			nxt = rst.filter(v => !v[prm.key] || prm.value.endsWith(v[prm.key]));
-			if (!nxt.length) {
-				console.warn(`MAP MIS: ${img} on ${prm.key}=${prm.value}`);
-				return '';
-			} else if (nxt.length == 1) {
-				return nxt[0].value;
-			}
-			rst = nxt;
-		}
-
-		console.warn('MAP MULTI:', img, pos, href);
-		return '';
-	}
-
+	// left menu
 	function theme_left($) {
 		$('#tasks img').each(function() {
 			prc_img($(this), 'left');
@@ -179,6 +145,7 @@
 
 	}
 
+	// job table
 	function theme_table($) {
 		$('#projectstatus img').each(function() {
 			prc_img($(this), 'table');
@@ -195,10 +162,12 @@
 		});
 	}
 
+	// build history
 	function theme_history($) {
 		$('#buildHistory img').each(function() {
 			prc_img($(this), 'history');
 		});
+		// dynamic replace img when building
 		$('#buildHistory').on('DOMSubtreeModified', (e) => {
 			if (e.target.tagName.toLowerCase() == 'tbody' && $('#buildHistory img').length) {
 				prc_img($($('#buildHistory img')[0]), 'history');
@@ -213,6 +182,7 @@
 		});
 	}
 
+	// other form
 	function theme_main($) {
 		$('.manage-option img').each(function() {
 			prc_img($(this), 'main', 'icon');
@@ -220,6 +190,7 @@
 		$('#main-panel img').each(function() {
 			prc_img($(this), 'main');
 		});
+		// replace some lazy img
 		$('#main-panel').on('DOMSubtreeModified', () => {
 			let imgs = $('#main-panel img');
 			if (imgs.length) {
@@ -228,22 +199,69 @@
 		})
 	}
 
+	// replace img to span.mdi-xxx
 	function prc_img(img, pos, clazz) {
 		let pt = img.parent();
 
 		let src = img.attr('src');
 		let file = src.substr(src.lastIndexOf('/') + 1);
 
-
 		let icon = mapping(file, pos, pt.attr('href'));
-		let sz = img.height();
+		let sz = img.height(); // use original size
 		if (icon && icon != 'SKIP') {
 			img.replaceWith(`<span class="mdi mdi-${sz}px ${icon} ${clazz||''}"></span>`);
 		}
 	}
 
+	// find a mdi class by filename/pos/href
+	function mapping(img, pos, href) {
+		let l1 = MMP[img];
+
+		// skip dynamic image
+		if (img.includes('?')) {
+			return '';
+		}
+		// miss config 1
+		if (!l1) {
+			console.warn('MAP MIS1:', img, pos);
+			return '';
+		}
+
+		if (typeof(l1) == 'string') {
+			return l1;
+		}
+
+		let params = [{
+			key: 'pos',
+			value: pos || ''
+		}, {
+			key: 'href',
+			value: href || ''
+		}];
+		
+		let rst = l1;
+		for (let prm of params) {
+			// match by 'endsWith'
+			nxt = rst.filter(v => !v[prm.key] || prm.value.endsWith(v[prm.key]));
+			if (!nxt.length) {
+				// miss config 2
+				console.warn(`MAP MIS: ${img} on ${prm.key}=${prm.value}`);
+				return '';
+			} else if (nxt.length == 1) {
+				return nxt[0].value;
+			}
+			rst = nxt;
+		}
+
+		// match multiple icon
+		console.warn('MAP MULTI:', img, pos, href);
+		return '';
+	}
+
 	document.addEventListener("DOMContentLoaded", function() {
-		// load jquery
+		// this is jquery library, I found it from the buildin verdor
+		// by default it's overrided by prototype.js
+		// so I load it myself
 		webpackJsonp[0][1][0](window);
 
 		// process conflict
